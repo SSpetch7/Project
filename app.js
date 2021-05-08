@@ -21,7 +21,7 @@ app.get('/',function(req,res){
     res.render('Home.ejs');
 });
 
-//Static File
+//Static File( CSS )
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname+'public/css'))
 

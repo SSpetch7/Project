@@ -1,3 +1,30 @@
-/*nav {
+/* Bpdy*/
+body {
+    padding-left: 190px;
+    padding-right: 190px;
+    
+}
+nav {
     background-color: aqua;
-}*/
+}
+/* layout search*/
+.form-control {
+    width: 800px;
+}
+.d-flex {
+    padding-left: 100px;
+}
+
+/* cart */
+.bi-cart {
+    padding-left: 40px;
+}
+
+/* button sign up, log in */
+.navbar-nav {
+    padding-left: 100px;
+} 
+.nav-item {
+    padding-left:40px ;
+    
+}

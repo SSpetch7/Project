@@ -24,7 +24,10 @@ body  div {
 }
 .seller {
     font-size: 14px;
+    text-decoration: none;
+    color: black;
 }
+
 
 /* layout search*/
 .form-control {

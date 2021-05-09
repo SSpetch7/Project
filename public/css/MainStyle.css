@@ -1,4 +1,5 @@
-/* Bpdy*/
+/*----------------------Header--------------------------*/
+/* Body*/
 body {
     padding-left: 5%;
     padding-right: 5%;
@@ -17,8 +18,7 @@ nav {
     padding-right: 1em;
    
 }
-
-body  div {
+#bar-seller {
     background-color:rgb(96, 189, 108) ;
 
 }
@@ -58,3 +58,7 @@ body  div {
     text-align: center;
 }
 
+/*----------------------HOME--------------------------*/
+.top {
+    background-color: aqua;
+}

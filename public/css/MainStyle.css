@@ -1,9 +1,8 @@
 /*----------------------Header--------------------------*/
 /* Body*/
 body {
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-top: 0;
+    margin-left: 5%;
+    margin-right: 5%;
     
 }
 nav {
@@ -30,12 +29,10 @@ nav {
 
 
 /* layout search*/
-.form-control {
-    width: 62em;
-    
-}
+
+
 .d-flex {
-    padding-left: 5em;
+    padding-left: 8em;
 }
 
 /* cart */
@@ -59,6 +56,27 @@ nav {
 }
 
 /*----------------------HOME--------------------------*/
+/* Top */
 .top {
-    background-color: aqua;
+    background-color: black;
+    height: 20em;
 }
+.top .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+/* Top -- category*/
+.category{
+    background-color: aqua;
+    border:1px solid black;
+}
+.list-cate {
+    height: 2.5em;
+    margin-top: 5px;
+}
+
+/* Top -- baner */
+ .baner {
+    background-color: aquamarine;
+}
+

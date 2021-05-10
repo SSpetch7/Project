@@ -5,6 +5,15 @@ body {
     margin-right: 5%;
     
 }
+.row {
+    margin-left: 0;
+}
+.row>*{
+    padding-left: 0;
+}
+.navbar {
+    padding-left: .5em;
+}
 nav {
     background-color:rgb(96, 189, 108);
     height: 90px;

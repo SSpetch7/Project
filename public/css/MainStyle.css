@@ -57,14 +57,8 @@ nav {
 
 /*----------------------HOME--------------------------*/
 /* Top */
-.top {
-    background-color: black;
-    height: 20em;
-}
-.top .row {
-    margin-left: 0;
-    margin-right: 0;
-}
+
+
 /* Top -- category*/
 .category{
     background-color: aqua;
@@ -80,3 +74,25 @@ nav {
     background-color: aquamarine;
 }
 
+/* Midle */
+
+/* Midle -- Promotion */
+
+.promotion .pic {
+    background-color: gold;
+    height: 150px;
+}
+
+/*low*/
+/*low -- item*/
+.item {
+    background-color: hotpink;
+  
+}
+
+
+
+.item-pic {
+    background-color: sandybrown;
+    height: 250px;
+}

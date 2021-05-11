@@ -1,6 +1,6 @@
 <%- include('partials/header.ejs') %>
 <link rel="stylesheet" href="css/HomeStyle.css">
-<div class='containar-fluid top'>
+<div class='container-fluid top'>
     <div class="row mt-4">
         <div class=' col-sm-2 category d-inline-block float-start'>
             <div class="list-cate">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class=' col-sm-10 baner d-inline-block '>
-            <p class='baner-pic float-start'>111</p>
+            <p class='baner-pic float-start'></p>
         </div>
     </div>
 </div>
@@ -46,89 +46,25 @@
 </div>
 <div class="row item album mt-4">
     <div class="containar">
-        <div class="row row-cols-1 mb-2 rows-sm-2 g-3">
+        <div class="row row-cols-1 mb-2 rows-cols-sm-2 row-cols-md-3 g-3">
+            <% Collections.forEach(function(collection){ %>
             <div class="col-sm-3">
                 <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
+                    <div>
+                        <img src="<%= collection.image %>"  class='item-pic card-img-top '>
+                    </div>
+                    <h5 class="card-title"> <%= collection.name %> </h5>
                     <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
+                        <p class="cart-text"> <%= collection.desc %> </p>
+                        <h4 class='card-title price'> <%= collection.price %>  </h4>
+                        <div class="btn-group">
+                            <a href="/home/<%= collection._id %>" class="btn btn-sm btn-outline-success">View</a>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
-                    <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
-                    <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
-                    <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row row-cols-1 rows-sm-2 g-3">
-            <div class="col-sm-3">
-                <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
-                    <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
-                    <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
-                    <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card ">
-                    <img src="xxxxxx" class='item-pic card-img-top'>
-                    <h5 class="card-title">xxxxxxxxx</h5>
-                    <div class="card-body">
-                        <p class="cart-text">Kittinan Samakpong from Thailand</p>
-                        <h4 class='card-title'>฿ 1200</h4>
-                    </div>
-                </div>
-            </div>
+            <% }); %>
         </div>
     </div>
 

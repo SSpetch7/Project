@@ -1,6 +1,9 @@
 /*----------------------HOME--------------------------*/
 /* Top */
-
+.top {
+    padding-left: 0%;
+    padding-right: 0%;
+}
 
 /* Top -- category*/
 .category{
@@ -25,6 +28,11 @@
     background-color: gold;
     height: 150px;
 }
+.promotion {
+ /*
+    margin-right: 0;
+    padding-right: 0;*/
+}
 
 /*low*/
 /*low -- item*/
@@ -34,11 +42,14 @@
 }
 
 .row .containar {
-    margin-right: 0;
-    padding-right: 0;
+   /* margin-right: 0;
+    padding-right: 0;*/
 }
 
 .item-pic {
     background-color: sandybrown;
     height: 250px;
+    width:auto ;
+    display: block;
+    margin: auto;
 }

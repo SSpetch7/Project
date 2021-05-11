@@ -1,0 +1,44 @@
+/*----------------------HOME--------------------------*/
+/* Top */
+
+
+/* Top -- category*/
+.category{
+    background-color: aqua;
+    border:1px solid black;
+}
+.list-cate {
+    height: 2.5em;
+    margin-top: 5px;
+}
+
+/* Top -- baner */
+ .baner {
+    background-color: aquamarine;
+}
+
+/* Midle */
+
+/* Midle -- Promotion */
+
+.promotion .pic {
+    background-color: gold;
+    height: 150px;
+}
+
+/*low*/
+/*low -- item*/
+.item {
+    background-color: hotpink;
+  
+}
+
+.row .containar {
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.item-pic {
+    background-color: sandybrown;
+    height: 250px;
+}

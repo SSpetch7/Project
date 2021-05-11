@@ -56,10 +56,10 @@ app.use(express.static('public'))
 app.use('/css',express.static(__dirname+'public/css'))
 
 app.get('/',function(req,res){
-    res.render('collection.ejs');
+    res.render('collections/collection.ejs');
 });
 app.get('/home/new',function(req,res){
-    res.render('new.ejs');
+    res.render('collections/new.ejs');
 });
 
 app.get('/home/:id',function(req,res){
@@ -67,7 +67,7 @@ app.get('/home/:id',function(req,res){
         if(err){
             console.log(err);
         } else {
-            res.render('show.ejs',{home:foundCollection});
+            res.render('collections/show.ejs',{home:foundCollection});
         }
     });
 });

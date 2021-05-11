@@ -99,7 +99,10 @@ nav {
   
 }
 
-
+.row .containar {
+    margin-right: 0;
+    padding-right: 0;
+}
 
 .item-pic {
     background-color: sandybrown;

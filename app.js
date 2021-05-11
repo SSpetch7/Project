@@ -1,26 +1,27 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    Collection = require('./models/collection'),
+    seedDB =require('./seeds');
 // database
 mongoose.connect('mongodb://localhost/BItem');
-
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
+seedDB();
 
 app.use('/public',function(req,res,next){
     next();
 });
-
-var collectionShema = new mongoose.Schema({
+/*r collectionShema = new mongoose.Schema({
     name: String,
     image: String,
     desc : String,
     price : String
 });
-
+*//*
 var Collection = mongoose.model('Collection',collectionShema);
-
+*/
 /*var collection = [
     {name:'Iron man mk1'},
     {name:'Iron man mk2'},
@@ -93,7 +94,7 @@ app.get('/home/new',function(req,res){
 });
 
 app.get('/home/:id',function(req,res){
-    Collection.findById(req.params.id, function(err,foundCollection){
+    Collection.findById(req.params.id).populate('comments').exec(function(err, foundCollection){
         if(err){
             console.log(err);
         } else {
@@ -101,6 +102,7 @@ app.get('/home/:id',function(req,res){
         }
     });
 });
+
 app.listen(3000,function(){
     console.log('SHOPERSHOPER is started.');
 });

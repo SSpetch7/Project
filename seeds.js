@@ -8,19 +8,19 @@ var data = [
         name:'Go to the doi',
         image: 'https://pbs.twimg.com/media/EqyZb0_W4AAkmqt?format=jpg&name=large',
         desc : 'xxxxxxxxxx',
-        price : '1200 ฿'
+        price : '500 ฿'
     },
     {
         name:'Go to the moon',
         image: 'https://pbs.twimg.com/media/EqyZb0_W4AAkmqt?format=jpg&name=large',
         desc : 'xxxxxxxxxx',
-        price : '1200 ฿'
+        price : '200 ฿'
     },
     {
         name:'Go to the ...',
         image: 'https://pbs.twimg.com/media/EqyZb0_W4AAkmqt?format=jpg&name=large',
         desc : 'xxxxxxxxxx',
-        price : '1200 ฿'
+        price : '700 ฿'
     },
 ];
 

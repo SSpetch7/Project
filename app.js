@@ -94,7 +94,7 @@ app.get('/home/:id',function(req,res){
     });
 });
 /* comment */
-app.get('/home/:id/comments/new', function(req,res){
+app.get('/home/:id/comments/new',isLoggedIn, function(req,res){
     Collection.findById(req.params.id, function(err,foundCollection){
         if(err){
             console.log(err);
@@ -153,6 +153,17 @@ app.post('/login',passport.authenticate('local',
     }), function(req,res){
 });
 
+app.get('/logout', function(req,res){
+    req.logout();
+    res.redirect('/home');
+});
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
 
 app.listen(3000,function(){
     console.log('SHOPERSHOPER is started.');

@@ -16,7 +16,7 @@
     </div>
     <nav class="row navbar navbar-expand-lg navbar-light  ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">SHOPPER SHOPPER</a>
+          <a class="navbar-brand" href="/home">SHOPPER SHOPPER</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,15 +26,26 @@
               <button  class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
             </form>
             <i class="bi bi-cart btn-outline-success"></i> 
+            <% if(!currentUser) { %>
             <ul class="navbar-nav ">
               <li class="nav-item">
-                <a class="nav-link btn-outline-success" id='signButton' href="#">Sign up</a>
+                <a class="nav-link btn-outline-success" id='signButton' href="/register">Sign up</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link btn-outline-success" id='logButton' href="#">Log in</a>
+                <a class="nav-link btn-outline-success" id='logButton' href="/login">Log in</a>
               </li>
             </ul>
-            
+            <% } else { %>
+              <ul class="navbar-nav ">
+                <li class="nav-item">
+                  <a class="nav-link btn-outline-success" id='signButton' href="/logout">Log out</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn-outline-success" id='logButton' href="#"> <%= currentUser.username %> </a>
+                </li>
+                
+              </ul>
+              <% } %>
           </div>
         </div>
       </nav>

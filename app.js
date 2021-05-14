@@ -17,7 +17,9 @@ var homeRoutes = require('./routes/homepage'),
 mongoose.connect('mongodb://localhost/BItem');
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
-app.use(express.static(__dirname + 'public'));
+//Static File( CSS )
+app.use(express.static('public'))
+app.use('/css',express.static(__dirname+'public/css'))
 seedDB();
 
 app.use(require('express-session')({

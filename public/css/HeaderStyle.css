@@ -52,6 +52,7 @@ nav {
 /* button sign up, log in */
 .navbar-nav {
     margin-left: 7em;
+    margin-right: 1em;
 } 
 .nav-item {
     margin-left: 1.5em;

@@ -28,22 +28,18 @@
     background-color: gold;
     height: 150px;
 }
-.promotion {
- /*
-    margin-right: 0;
-    padding-right: 0;*/
-}
+
 
 /*low*/
 /*low -- item*/
-.item {
+.contanar {
    /* background-color: hotpink;*/
   
 }
 
-.row .containar {
-   /* margin-right: 0;
-    padding-right: 0;*/
+ .item {
+   /* margin-right: 0;*/
+   /* padding-right: 0;*/
 }
 
 .item-pic {

@@ -44,7 +44,6 @@ app.use('/public',function(req,res,next){
     next();
 });
 
-app.use('/',homeRoutes);
 app.use('/home',homeRoutes);
 app.use('/home/:id/comments',commentRoutes);
 app.use('/',indexRoutes);

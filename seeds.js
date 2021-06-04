@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var Collection =require('./models/collection');
+var Collection =require('./models/item');
 var Comment =require('./models/comment');
 
 var data = [

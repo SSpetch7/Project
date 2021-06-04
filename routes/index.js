@@ -6,7 +6,7 @@ var express = require('express'),
 
 
 router.get('/',function(req,res){
-    res.render('collections/collection.ejs');
+    res.render('home.ejs');
 });
 
 /* Register */ 
@@ -21,7 +21,7 @@ router.post('/register', function(req,res){
             return res.render('register');
         }
         passport.authenticate('local')(req, res, function(){
-            res.redirect('/home');
+            res.redirect('/item');
         });
     });
 });
@@ -33,14 +33,14 @@ router.get('/login',function(req,res){
 });
 router.post('/login',passport.authenticate('local',
     {
-    successRedirect: '/home',
+    successRedirect: '/item',
     failureRedirect: '/login'
     }), function(res,res){
 });
 
 router.get('/logout', function(req,res){
     req.logout();
-    res.redirect('/home');
+    res.redirect('/item');
 });
 
 module.exports = router;

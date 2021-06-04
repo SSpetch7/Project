@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router({mergeParams: true}),
-    Collection = require('../models/collection'),
+    Collection = require('../models/item'),
     Comment = require('../models/comment');
 
 
@@ -18,7 +18,7 @@ router.post('/',isLoggedIn, function(req,res){
     Collection.findById(req.params.id, function(err, foundCollection){
         if(err){
             console.log(err);
-            res.redirect('/home');
+            res.redirect('/item');
         }else{
             Comment.create(req.body.comment, function(err, comment){
                 if(err){

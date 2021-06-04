@@ -4,12 +4,12 @@ var express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
-    Collection = require('./models/collection'),
-    Comment = require('./models/collection'),
+    Collection = require('./models/item'),
+    Comment = require('./models/item'),
     User = require('./models/user'),
     seedDB =require('./seeds');
 
-var homeRoutes = require('./routes/homepage'),
+var itemRoutes = require('./routes/item'),
     commentRoutes    = require('./routes/comments'),
     indexRoutes    = require('./routes/index');
     
@@ -44,9 +44,9 @@ app.use('/public',function(req,res,next){
     next();
 });
 
-app.use('/home',homeRoutes);
-app.use('/home/:id/comments',commentRoutes);
 app.use('/',indexRoutes);
+app.use('/item',itemRoutes);
+app.use('/item/:id/comments',commentRoutes);
 
 
 app.listen(3000,function(){

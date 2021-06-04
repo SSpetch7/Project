@@ -1,13 +1,13 @@
 var express = require('express'),
     router = express.Router(),
-    Collection = require('../models/collection');
+    Item = require('../models/item');
 
 router.get('/',function(req,res){
-    Collection.find({},function(err, allItemList){
+    Item.find({},function(err, allItemList){
         if(err){
             console.log(err);
         }else {
-            res.render("Home.ejs",{collections: allItemList});
+            res.render("Home.ejs",{items: allItemList});
         } 
     });
 });
@@ -19,26 +19,26 @@ router.post('/',function(req,res){
     var desc = req.body.desc;
     var price = req.body.price;
     var newItemList = {name : name, image : image, desc : desc, price : price}; 
-    Collection.create(newItemList, function(err, newlyCreated){
+    Item.create(newItemList, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else {
-            res.redirect('/home');
+            res.redirect('/item');
         }
     });
 });
 
 
 router.get('/new',function(req,res){
-    res.render('collections/new.ejs');
+    res.render('items/new.ejs');
 });
 /* Show pic */
 router.get('/:id',function(req,res){
-    Collection.findById(req.params.id).populate('comments').exec(function(err, foundCollection){
+    Item.findById(req.params.id).populate('comments').exec(function(err, foundCollection){
         if(err){
             console.log(err);
         } else {
-            res.render('collections/show.ejs',{collection: foundCollection});
+            res.render('items/show.ejs',{item: foundCollection});
         }
     });
 });

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var collectionShema = new mongoose.Schema({
+var itemShema = new mongoose.Schema({
     name: String,
     image: String,
     desc : String,
@@ -13,4 +13,4 @@ var collectionShema = new mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model('Collection',collectionShema);
+module.exports = mongoose.model('Item',itemShema);

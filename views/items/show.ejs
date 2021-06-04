@@ -10,7 +10,7 @@
             </div>
             
         </div>
-<a class='btn btn-primary' href="/home/<%= collection._id %>/comments/new"> new comment</a>       
+<a class='btn btn-primary' href="/collection/<%= collection._id %>/comments/new"> new comment</a>       
 <% collection.comments.forEach(function(comment) { %>
     <p>
         <strong> <%= comment.author.username %> </strong> - <%= comment.text %>

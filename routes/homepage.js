@@ -38,7 +38,7 @@ router.get('/:id',function(req,res){
         if(err){
             console.log(err);
         } else {
-            res.render('collections/show.ejs',{home:foundCollection});
+            res.render('collections/show.ejs',{collection: foundCollection});
         }
     });
 });

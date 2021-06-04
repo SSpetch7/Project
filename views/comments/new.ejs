@@ -2,11 +2,11 @@
 
 
 <div class="container mt-4">
-    <form action='/home/ <%= home._id %>/comments' method="POST">
-        <div class="mb-3">
+    <form action='/home/ <%= collection._id %>/comments' method="POST">
+        <!-- <div class="mb-3">
             <label  class="form-label">Author</label>
             <input type="text"  class="form-control" name = 'comment[author]' placeholder="Your username">
-        </div>
+        </div> -->
         <div class="mb-3">
             <label  class="form-label">Comment</label>
             <input type="text"  class="form-control" name = 'comment[text]' placeholder="Comment">

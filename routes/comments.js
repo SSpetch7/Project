@@ -1,7 +1,7 @@
 var express = require('express'),
-    router = express.Router(),
+    router = express.Router({mergeParams: true}),
     Collection = require('../models/collection'),
-    comment = require('../models/comment');
+    Comment = require('../models/comment');
 
 
 router.get('/new',isLoggedIn, function(req,res){
@@ -9,12 +9,12 @@ router.get('/new',isLoggedIn, function(req,res){
         if(err){
             console.log(err);
         } else {
-            res.render('comments/new.ejs',{home:foundCollection});
+            res.render('comments/new.ejs',{collection: foundCollection});
         }
     });
 });
 
-router.post('/', function(req,res){
+router.post('/',isLoggedIn, function(req,res){
     Collection.findById(req.params.id, function(err, foundCollection){
         if(err){
             console.log(err);
@@ -24,6 +24,9 @@ router.post('/', function(req,res){
                 if(err){
                     console.log(err);
                 }else {
+                    comment.author.id = req.user._id;
+                    comment.author.username = req.user.username;
+                    comment.save();
                     foundCollection.comments.push(comment);
                     foundCollection.save();
                     

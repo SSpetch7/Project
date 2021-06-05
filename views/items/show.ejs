@@ -43,7 +43,7 @@
  <a class='btn btn-primary' href="/item/<%= item._id %>/comments/new"> new comment</a>    
 <% item.comments.forEach(function(comment) { %>
     <p>
-        <strong> <%= comment.author.username %> </strong> - <%= comment.text %>
+        <strong> <%= comment.author %> </strong> - <%= comment.text %>
     </p>
 <% }); %>
 <!--

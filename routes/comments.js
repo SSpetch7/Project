@@ -22,18 +22,18 @@ router.post('/',isLoggedIn, function(req,res){
         if(err){
             console.log(err);
             res.redirect('/item');
-        }else{
+        } else {
             Comment.create(req.body.comment, function(err, comment){
                 if(err){
                     console.log(err);
-                }else {
+                } else {
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
                     comment.save();
                     foundCollection.comments.push(comment);
                     foundCollection.save();
                     
-                    res.redirect('/'+foundCollection._id);
+                    res.redirect('/item/'+foundCollection._id);
                 }
             })
         }

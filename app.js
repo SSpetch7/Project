@@ -11,7 +11,8 @@ var express = require('express'),
 
 var itemRoutes = require('./routes/item'),
     commentRoutes    = require('./routes/comments'),
-    indexRoutes    = require('./routes/index');
+    indexRoutes    = require('./routes/index'),
+    commentV2Routes = require('./routes/commentsNewV');
     
 // database
 mongoose.connect('mongodb://localhost/BItem');
@@ -47,7 +48,7 @@ app.use('/public',function(req,res,next){
 app.use('/',indexRoutes);
 app.use('/item',itemRoutes);
 app.use('/item/:id/comments',commentRoutes);
-
+/*app.use('/do-comment',commentV2Routes);*/
 
 app.listen(3000,function(){
     console.log('SHOPERSHOPER is started.');

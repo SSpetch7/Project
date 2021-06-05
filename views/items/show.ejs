@@ -10,7 +10,37 @@
             </div>
             
         </div>
-<a class='btn btn-primary' href="/item/<%= item._id %>/comments/new"> new comment</a>       
+        <!-- Comments Form -->
+<!--       <div class="card container mt-4">
+            <h5 class="card-header">Comment</h5>
+            <div class="card-body">
+                <form method="POST" onsubmit="return doComment(this);">
+                    <div class='form-group'>
+                        <textarea class='form-control' name='comment' rows='3'></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            function doComment(form){
+                $.ajax({
+                    url :"/do-comment",
+                    method:"Post",
+                    data: {comment:form.comment.value},
+                    success: function(response){
+                        altert(response);
+                    }
+                });
+                return false;
+            }
+        </script>
+--> 
+
+
+
+
+ <a class='btn btn-primary' href="/item/<%= item._id %>/comments/new"> new comment</a>    
 <% item.comments.forEach(function(comment) { %>
     <p>
         <strong> <%= comment.author.username %> </strong> - <%= comment.text %>

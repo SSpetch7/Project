@@ -13,7 +13,10 @@ router.get('/new',isLoggedIn, function(req,res){
         }
     });
 });
-
+/*
+router.get('/',isLoggedIn, function(req,res){
+    res.render('show.ejs');
+});*/
 router.post('/',isLoggedIn, function(req,res){
     Collection.findById(req.params.id, function(err, foundCollection){
         if(err){

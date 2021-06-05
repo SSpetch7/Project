@@ -7,7 +7,7 @@ router.get('/',function(req,res){
         if(err){
             console.log(err);
         }else {
-            res.render("Home.ejs",{items: allItemList});
+            res.render("Home.ejs", {items: allItemList});
         } 
     });
 });
@@ -23,7 +23,7 @@ router.post('/',function(req,res){
         if(err){
             console.log(err);
         } else {
-            res.redirect('/item');
+            res.redirect('/');
         }
     });
 });

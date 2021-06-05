@@ -3,15 +3,15 @@
 
         <div class="row mt-4">
             <div class='col-8 pic'>
-                <img src="<%= collection.image %>" height="220px" width="auto" >
-                <h5 class="card-title"> <%= collection.name %> </h5>
-                <p class="cart-text"> <%= collection.desc %> </p>
-                <h4 class='card-title price'> <%=collection.price %></h4>
+                <img src="<%= item.image %>" height="220px" width="auto" >
+                <h5 class="card-title"> <%= item.name %> </h5>
+                <p class="cart-text"> <%= item.desc %> </p>
+                <h4 class='card-title price'> <%=item.price %></h4>
             </div>
             
         </div>
-<a class='btn btn-primary' href="/collection/<%= collection._id %>/comments/new"> new comment</a>       
-<% collection.comments.forEach(function(comment) { %>
+<a class='btn btn-primary' href="/item/<%= item._id %>/comments/new"> new comment</a>       
+<% item.comments.forEach(function(comment) { %>
     <p>
         <strong> <%= comment.author.username %> </strong> - <%= comment.text %>
     </p>

@@ -47,18 +47,18 @@
 <div class="row item album mt-4">
     <div class="container">
         <div class="row row-cols-1 mb-2 rows-cols-sm-2 row-cols-md-3 g-3">
-            <% items.forEach(function(item) { %>
+            <% items.forEach(function(collection) { %>
             <div class="col-sm-3">
                 <div class="card ">
                     <div>
-                        <img src="<%= item.image %>"  class='item-pic card-img-top '>
+                        <img src="<%= collection.image %>"  class='item-pic card-img-top '>
                     </div>
-                    <h5 class="card-title"> <%= item.name %> </h5>
+                    <h5 class="card-title"> <%= collection.name %> </h5>
                     <div class="card-body">
-                        <p class="cart-text"> <%= item.desc %> </p>
-                        <h4 class='card-title price'> <%= item.price %>  </h4>
+                        <p class="cart-text"> <%= collection.desc %> </p>
+                        <h4 class='card-title price'> <%= collection.price %>  </h4>
                         <div class="btn-group">
-                            <a href="/item/<%= item._id %>" class="btn btn-sm btn-outline-success">View</a>
+                            <a href="/item/<%= collection._id %>" class="btn btn-sm btn-outline-success">View</a>
                             
                         </div>
                     </div>
@@ -69,7 +69,5 @@
     </div>
 
 </div>
-
-
 
 <%- include('partials/footer.ejs') %>

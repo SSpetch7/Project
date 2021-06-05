@@ -2,7 +2,7 @@
 
 
 <div class="container mt-4">
-    <form action='/home/ <%= collection._id %>/comments' method="POST">
+    <form action='/item/ <%= collection._id %>/comments' method="POST">
         <!-- <div class="mb-3">
             <label  class="form-label">Author</label>
             <input type="text"  class="form-control" name = 'comment[author]' placeholder="Your username">
@@ -13,6 +13,6 @@
         </div>
         
         <button type="submit" class='btn btn-primary'>Submit</button>
-        <a href="/item">Go to Back</a>
+        <a href="/">Go to Back</a>
     </form>
 </div>

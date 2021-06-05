@@ -2,11 +2,17 @@ var express = require('express'),
     router = express.Router(),
     User = require('../models/user'),
     passport = require('passport');
-
+    Item = require('../models/item');
 
 
 router.get('/',function(req,res){
-    res.render('home.ejs');
+    Item.find({},function(err, allItemList){
+        if(err){
+            console.log(err);
+        }else {
+            res.render("Home.ejs", {items: allItemList});
+        } 
+    });
 });
 
 /* Register */ 
@@ -21,7 +27,7 @@ router.post('/register', function(req,res){
             return res.render('register');
         }
         passport.authenticate('local')(req, res, function(){
-            res.redirect('/item');
+            res.redirect('/');
         });
     });
 });
@@ -33,14 +39,14 @@ router.get('/login',function(req,res){
 });
 router.post('/login',passport.authenticate('local',
     {
-    successRedirect: '/item',
+    successRedirect: '/',
     failureRedirect: '/login'
     }), function(res,res){
 });
 
 router.get('/logout', function(req,res){
     req.logout();
-    res.redirect('/item');
+    res.redirect('/');
 });
 
 module.exports = router;

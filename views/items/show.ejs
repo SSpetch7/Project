@@ -4,14 +4,15 @@
         <div class="row mt-4">
             <div class='col-8 pic'>
                 <img src="<%= item.image %>" height="220px" width="auto" >
-                <h5 class="card-title"> <%= item.name %> </h5>
+                <h5 class="card-title"> <%= item.name %>   </h5>
                 <p class="cart-text"> <%= item.desc %> </p>
                 <h4 class='card-title price'> <%=item.price %></h4>
             </div>
             
         </div>
+       
         <!-- Comments Form -->
-<!--       <div class="card container mt-4">
+<!--       <div class="card container mt-4"> 
             <h5 class="card-header">Comment</h5>
             <div class="card-body">
                 <form method="POST" onsubmit="return doComment(this);">
@@ -40,10 +41,10 @@
 
 
 
- <a class='btn btn-primary' href="/item/<%= item._id %>/comments/new"> new comment</a>    
+ <a class='btn btn-primary' href="/item/<%= item._id %>/comments/new"> new comment</a>   
 <% item.comments.forEach(function(comment) { %>
     <p>
-        <strong> <%= comment.author %> </strong> - <%= comment.text %>
+        <strong> <%= comment.author.username %> </strong> - <%= comment.text %>
     </p>
 <% }); %>
 <!--

@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
-var itemShema = new mongoose.Schema({
+var itemSchema = new mongoose.Schema({
     name: String,
     image: String,
-    desc : String,
+    desc: String,
     price : String,
-    comments : [
+    comments: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment'
@@ -13,4 +13,4 @@ var itemShema = new mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model('Item',itemShema);
+module.exports = mongoose.model('Item', itemSchema);

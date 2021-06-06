@@ -36,18 +36,6 @@ function seedDB(){
                     console.log(err);
                 }else {
                     console.log('New data added');
-                    // Comment.create(
-                    // {
-                    //     author : 'PetchJA',
-                    //     text : "MAI NAAAAAAAAAA"
-                    // }, function(err, comment){
-                    //     if(err){
-                    //         console.log(err);
-                    //     }else {
-                    //         collection.comments.push(comment);
-                    //         collection.save();
-                    //     }
-                    // });
                 }
             });
         });

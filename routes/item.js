@@ -2,6 +2,7 @@ var express = require('express'),
     router = express.Router(),
     multer = require('multer'),
     path = require('path'),
+    middleware = require('../middleware'),
     storage = multer.diskStorage({
                 destination: function(req, file, callback){
                     callback(null,"./public/uploads");
@@ -30,7 +31,7 @@ router.get('/',function(req,res){
 });
 
 
-router.post('/', isLoggedIn, upload.single('image'), function(req, res){
+router.post('/', middleware.isLoggedIn, upload.single('image'), function(req, res){
     req.body.item.image = '/uploads/' + req.file.filename;
     Item.create(req.body.item, function(err, newlyCreated){
         if(err){
@@ -42,7 +43,7 @@ router.post('/', isLoggedIn, upload.single('image'), function(req, res){
 });
 
 
-router.get('/new', isLoggedIn, function(req,res){
+router.get('/new', middleware.isLoggedIn, function(req,res){
     res.render('items/new.ejs');
 });
 
@@ -56,11 +57,28 @@ router.get("/:id", function(req, res){
     });
 });
 
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
+                        
+router.get("/:id/edit",/*middleware.checkCollectionOwner,*/ function(req,res){
+    Item.findById(req.params.id, function(err, foundCollection){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("items/edit.ejs", {item: foundCollection})
+        }
+    });
+});
+
+router.put('/:id', upload.single('image'), function(req, res){
+    if(req.file){
+        req.body.item.image = '/uploads/'+ req.file.filename;
     }
-    res.redirect('/login');
-}
+    Item.findByIdAndUpdate(req.params.id, req.body.item, function(err, updatedCollecion){
+        if(err){
+            res.redirect("/item/");
+        } else {
+            res.redirect("/item/"+ req.params.id);
+        }
+    });
+});
 
 module.exports = router;

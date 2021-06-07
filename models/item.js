@@ -5,6 +5,13 @@ var itemSchema = new mongoose.Schema({
     image: String,
     desc: String,
     price : String,
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+        username: String 
+    }
     comments: [
         {
             type: mongoose.Schema.Types.ObjectId,

@@ -2,6 +2,7 @@ const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
+    methodOverride = require('method-override'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
     Collection = require('./models/item'),
@@ -18,6 +19,7 @@ var itemRoutes = require('./routes/item'),
 mongoose.connect('mongodb://localhost/BItem');
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
+app.use(methodOverride('_method'));
 //Static File( CSS )
 app.use(express.static('public'))
 app.use('/css',express.static(__dirname+'public/css'))

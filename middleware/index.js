@@ -1,9 +1,10 @@
-var Item = require('../models/item');
+var Item = require('../models/item'),
+    Comment = require('../models/comment');
 
 
 var middlewareObj = {};
 
-middlewareObj.checkCollectionOwner = function(req, res, next){
+middlewareObj.checkItemOwner = function(req, res, next){
     if(req.isAuthenticated()){
         Item.findById(req.params.id, function(err, foundCollection){
             if(err){
@@ -21,7 +22,23 @@ middlewareObj.checkCollectionOwner = function(req, res, next){
     }
 }
 
-
+middlewareObj.checkCommentOwner = function(req, res, next){
+    if(req.isAuthenticated()){
+        Comment.findById(req.params.comment_id, function(err, foundComment){
+            if(err){
+                res.redirect('back');
+            } else {
+                if(foundComment.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    res.redirect('back');
+                }
+            }
+        });
+    } else {
+        res.redirect('back');
+    }
+}
 
 
 middlewareObj.isLoggedIn = function(req, res, next){

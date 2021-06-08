@@ -1,19 +1,20 @@
 var express = require('express'),
     router  = express.Router({mergeParams: true}),
+    middleware = require('../middleware'),
     Collection = require('../models/item'),
     Comment    = require('../models/comment');
 
-router.get('/new',isLoggedIn, function(req, res){
+router.get('/new', middleware.isLoggedIn, function(req, res){
     Collection.findById(req.params.id, function(err, foundCollection){
         if(err){
             console.log(err);
         } else {
-            res.render("comments/new.ejs", {collection: foundCollection});
+            res.render("comments/new.ejs", {item: foundCollection});
         }
     });    
 });
 
-router.post('/', isLoggedIn, function(req, res){
+router.post('/', middleware.isLoggedIn, function(req, res){
     Collection.findById(req.params.id, function(err, foundCollection){
         if(err){
             console.log(err);
@@ -35,11 +36,33 @@ router.post('/', isLoggedIn, function(req, res){
     });
 });
 
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect('/login');
-}
+router.get('/:comment_id/edit', middleware.checkCommentOwner, function(req, res){
+    Comment.findById(req.params.comment_id, function(err, foundComment){
+        if(err){
+            res.redirect('back');
+        } else {
+            res.render('comments/edit.ejs', {item_id: req.params.id, comment: foundComment});
+        }
+    });
+});
 
+router.put('/:comment_id', middleware.checkCommentOwner, function(req, res){
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+        if(err){
+            res.redirect('back');
+        } else {
+            res.redirect('/item/'+ req.params.id);
+        }
+    });
+});
+
+router.delete('/:comment_id', middleware.checkCommentOwner, function(req, res){
+    Comment.findByIdAndRemove(req.params.comment_id, function(err){
+        if(err){
+            res.redirect('back');
+        } else {
+            res.redirect('/item/' + req.params.id);
+        }
+    });
+});
 module.exports = router;

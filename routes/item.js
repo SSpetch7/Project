@@ -60,7 +60,7 @@ router.get("/:id", function(req, res){
     });
 });
 
-router.get('/:id/edit', middleware.checkCollectionOwner, function(req, res){
+router.get('/:id/edit', middleware.checkItemOwner, function(req, res){
     Item.findById(req.params.id, function(err, foundCollection){
         if(err){
             console.log(err);
@@ -83,7 +83,7 @@ router.put('/:id', upload.single('image'), function(req, res){
     });
 });
 
-router.delete('/:id', middleware.checkCollectionOwner, function(req, res){
+router.delete('/:id', middleware.checkItemOwner, function(req, res){
     Item.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect('/item/');

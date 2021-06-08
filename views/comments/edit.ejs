@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs') %>
+
+
+<div class="container mt-4">
+    <form action='/item/<%= item_id %>/comments/<%= comment._id %>?_method=PUT' method="POST">
+        <div class="mb-3">
+            <label  class="form-label">Comment</label>
+            <input type="text"  class="form-control" name = 'comment[text]' placeholder="<%= comment.text %>" value = "<%= comment.text %>">
+        </div>
+        
+        <button type="submit" class='btn btn-primary'>Submit</button>
+        <a href="/item">Go to Back</a>
+    </form>
+</div>

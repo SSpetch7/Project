@@ -1,59 +1,29 @@
 <%- include('../partials/header.ejs') %>
+    <div class="row mt-4">
+        <div class='col-8 pic'>
+            <img src="<%=item.image%>" height="220px" width="auto" >
+            <h5 class="card-title"> <%= item.name %>   </h5>
+            <p class="cart-text"> <%= item.desc %> </p>
+            <h4 class='card-title price'> <%= item.price %></h4>
+        </div>
+    <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
+        <a href="/item/<%=item._id%>/edit">edit</a>
+        <form action = '/item/<%=item._id%>?_method=DELETE' method = "POST">
+            <button>Delete</button>
+        </form>
+    <% } %>
+    </div>
 
-
-        <div class="row mt-4">
-            <div class='col-8 pic'>
-                <img src="<%= item.image %>" height="220px" width="auto" >
-                <h5 class="card-title"> <%= item.name %>   </h5>
-                <p class="cart-text"> <%= item.desc %> </p>
-                <h4 class='card-title price'> <%=item.price %></h4>
-            </div>
-        <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
-            <a href="/item/<%= item._id %>/edit">edit</a>
-            <form action = '/item/<%= item._id %>?_method=DELETE' method = "POST">
+    <a class='btn btn-primary' href="/item/<%=item._id%>/comments/new"> new comment</a>   
+    <% item.comments.forEach(function(comment){ %>
+        <p>
+            <strong><%= comment.author.username %></strong> - <%= comment.text %>
+        </p>
+        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+            <a href="/item/<%= item._id %>/comments/<%= comment._id %>/edit"> edit </a>
+            <form action = '/item/<%=item._id %>/comments/<%= comment._id %>?_method=DELETE' method = "POST">
                 <button>Delete</button>
-
             </form>
         <% } %>
-        </div>
-       
-        <!-- Comments Form -->
-<!--       <div class="card container mt-4"> 
-            <h5 class="card-header">Comment</h5>
-            <div class="card-body">
-                <form method="POST" onsubmit="return doComment(this);">
-                    <div class='form-group'>
-                        <textarea class='form-control' name='comment' rows='3'></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </div>
-        <script>
-            function doComment(form){
-                $.ajax({
-                    url :"/do-comment",
-                    method:"Post",
-                    data: {comment:form.comment.value},
-                    success: function(response){
-                        altert(response);
-                    }
-                });
-                return false;
-            }
-        </script>
---> 
+    <% }); %> 
 
-
-
-
- <a class='btn btn-primary' href="/item/<%= item._id %>/comments/new"> new comment</a>   
-<% item.comments.forEach(function(comment) { %>
-    <p>
-        <strong> <%= comment.author.username %> </strong> - <%= comment.text %>
-    </p>
-<% }); %>
-<!--
-<link rel="stylesheet" href="../css/FooterStyle.css">
-<%- include('../partials/footer.ejs') %>
--->

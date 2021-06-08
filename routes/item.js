@@ -41,6 +41,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(req, re
         if(err){
             console.log(err);
         } else{
+            req.flash('success','Your item is created.');
             res.redirect('/item');
         }
     });

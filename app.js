@@ -25,7 +25,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'))
 app.use(flash());
 app.use('/css',express.static(__dirname+'public/css'))
-seedDB();
+//seedDB();
 
 app.use(require('express-session')({
     secret: 'secret is always secret.',

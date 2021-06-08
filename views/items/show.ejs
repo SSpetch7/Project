@@ -8,7 +8,9 @@
                 <p class="cart-text"> <%= item.desc %> </p>
                 <h4 class='card-title price'> <%=item.price %></h4>
             </div>
+        <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
             <a href="/item/<%= item._id %>/edit">edit</a>
+        <% } %>
         </div>
        
         <!-- Comments Form -->

@@ -58,7 +58,7 @@ router.get("/:id", function(req, res){
 });
 
                         
-router.get("/:id/edit",/*middleware.checkCollectionOwner,*/ function(req,res){
+router.get("/:id/edit",middleware.checkCollectionOwner, function(req,res){
     Item.findById(req.params.id, function(err, foundCollection){
         if(err){
             console.log(err);

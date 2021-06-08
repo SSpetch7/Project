@@ -1,7 +1,7 @@
 var Item = require('../models/item');
 
 var middlewareObj = {};
-/*
+
 middlewareObj.checkCollectionOwner = function(req, res, next){
     if(req.isAuthenticated()){
         Item.findById(req.params.id, function(err, foundCollection){
@@ -19,7 +19,9 @@ middlewareObj.checkCollectionOwner = function(req, res, next){
         res.redirect('back');
     }
 }
-*/
+
+
+
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();

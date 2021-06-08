@@ -9,7 +9,7 @@ middlewareObj.checkCollectionOwner = function(req, res, next){
             if(err){
                 res.redirect('back');
             } else {
-                if(foundCollection.author.id.equals(req.user._id)) {
+                if(foundCollection.author.id.equals(req.user._id)) { // เทียบ id ปัจจุบันกับ id เจ้าของ item ถ้าตรงกันสามารถ edit ได้
                     next();
                 } else {
                     res.redirect('back');

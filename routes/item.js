@@ -83,5 +83,14 @@ router.put('/:id', upload.single('image'), function(req, res){
     });
 });
 
+router.delete('/:id', middleware.checkCollectionOwner, function(req, res){
+    Item.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect('/item/');
+        } else {
+            res.redirect('/item');
+        }
+    });
+});
 
 module.exports = router;

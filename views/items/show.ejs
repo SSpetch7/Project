@@ -10,6 +10,10 @@
             </div>
         <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
             <a href="/item/<%= item._id %>/edit">edit</a>
+            <form action = '/item/<%= item._id %>?_method=DELETE' method = "POST">
+                <button>Delete</button>
+
+            </form>
         <% } %>
         </div>
        

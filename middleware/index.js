@@ -1,5 +1,6 @@
 var Item = require('../models/item');
 
+
 var middlewareObj = {};
 
 middlewareObj.checkCollectionOwner = function(req, res, next){
@@ -19,6 +20,7 @@ middlewareObj.checkCollectionOwner = function(req, res, next){
         res.redirect('back');
     }
 }
+
 
 
 

@@ -5,6 +5,12 @@ var itemSchema = new mongoose.Schema({
     image: String,
     desc: String,
     price: String,
+    category: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Category'
+        }
+    ],
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

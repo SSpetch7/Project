@@ -2,6 +2,22 @@ body {
     /* background-color: cadetblue; */
 }
 /* Item */
+/* Item == pic */
+@media screen and (max-width:1752px){
+    #picItem{
+        display: block;
+        margin: auto;
+    }
+}
+
+.item{
+    margin-top: 10px;
+}
+.pic-item {
+    margin-top: 5px;
+}
+
+
 .col .item-butt {
     display: flex;
     flex-direction: row;

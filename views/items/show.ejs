@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="../css/ShowItemStyle.css">
     <div class="container">
         <div class='row item'>
-            <div class='col'>
-                <img src="<%=item.image%>" height="220px" width="auto" >
+            <div class='col pic-item'>
+                <img id='picItem' src="<%=item.image%>" height="220px" width="auto" >
             </div>
             <div class='col '>
                 <h5 class="card-title"> <%= item.name %>  </h5>
@@ -12,7 +12,7 @@
                 <h4 class='card-title price'> <%= item.price %> BTH</h4>
                 <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
                     <div class="col item-butt">
-                        <button  class="btn btn-info"  href="/item/<%=item._id%>/edit">Edit</button>
+                        <a  class="btn btn-info"  href="/item/<%=item._id%>/edit">Edit</a>
                         <form action = '/item/<%=item._id%>?_method=DELETE' method = "POST">
                             <button class="btn btn-danger">Delete</button>
                         </form>
@@ -35,7 +35,9 @@
                     </div>
                     <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
                     <div class="comment-butt">
-                            <button type="button" class="btn btn-info" href="/item/<%= item._id %>/comments/<%= comment._id %>/edit"> Edit </button>
+                            <div class="ButtEdit">
+                                <a  class="btn btn-info" href="/item/<%= item._id %>/comments/<%= comment._id %>/edit"> Edit </a>
+                            </div>
                             <form id='formComButt' action = '/item/<%=item._id %>/comments/<%= comment._id %>?_method=DELETE' method = "POST">
                                 <button class="btn btn-danger">Delete</button>
                             </form>

@@ -30,6 +30,7 @@ router.get('/', function(req, res){
     });
 });
 
+
 router.post('/', middleware.isLoggedIn, upload.single('image'), function(req, res){
     console.log(req.file);
     req.body.item.image = '/uploads/'+ req.file.filename;

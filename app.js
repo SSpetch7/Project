@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'))
 app.use(flash());
 app.use('/css',express.static(__dirname+'public/css'))
-seedDB();
+//seedDB();
 
 app.use(require('express-session')({
     secret: 'secret is always secret.',
@@ -61,9 +61,9 @@ app.use('/public',function(req,res,next){
 app.use('/',indexRoutes);
 app.use('/item',itemRoutes);
 app.use('/item/:id/comments',commentRoutes);
-app.use('/category/:name',categoryRoutes);
+app.use('/category/:id',categoryRoutes);
 /*app.use('/do-comment',commentV2Routes);*/
 
-app.listen(3000,function(){
+app.listen(4000,function(){
     console.log('SHOPERSHOPER is started.');
 });

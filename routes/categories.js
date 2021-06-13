@@ -5,10 +5,11 @@ var express = require('express'),
     Category = require('../models/category');
     
 
-router.get('/:name', function(req, res){
-    Item.findone((req.params.Category), function(err, ItembyCategory){
+router.get('/:id', function(req, res){
+    Item.findId((req.params.cate_id), function(err, ItembyCategory){
         if(err){
             console.log(err);
+            res.redirect('back');
         } else {
             res.render('Home.ejs',{cate: ItembyCategory});
         }

@@ -15,8 +15,8 @@ body {
     padding-left: .5em;
 }
 nav {
-    background-color:rgb(96, 189, 108);
-    height: 90px;
+    background-color:aquamarine;
+    height: 80px;
 }
 
 /*Seller*/
@@ -27,7 +27,7 @@ nav {
    
 }
 #bar-seller {
-    background-color:rgb(96, 189, 108) ;
+    background-color:aquamarine ;
 
 }
 .seller {
@@ -59,7 +59,6 @@ nav {
 }
 
 #signButton , #logButton {
-    border:1px solid bisque;
     border-radius: 25px;
     width: 4.5em;
     text-align: center;

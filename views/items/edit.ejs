@@ -14,6 +14,10 @@
             <input type="file"  class="form-control" name = 'image' accept="image/*" >
         </div>
         <div class="mb-3">
+            <label  class="form-label">Category</label>
+            <input type="text"  class="form-control" name = 'item[category]' placeholder="<%= item.category %>" value="<%= item.category %>">
+        </div>
+        <div class="mb-3">
             <label  class="form-label">Description</label>
             <input type="text"  class="form-control" name = 'item[desc]' placeholder="<%= item.desc %>" value = "<%= item.desc %>" >
         </div>

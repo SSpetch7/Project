@@ -1,0 +1,19 @@
+body {
+    /* background-color: cadetblue; */
+}
+/* Item */
+.col .item-butt {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-butt .btn-danger {
+    margin-left:5px ;
+}
+
+/* Comment */
+
+.container .row .comment {
+    margin-top: 5px;
+    background-color: aqua;
+}

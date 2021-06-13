@@ -1,29 +1,40 @@
 <%- include('../partials/header.ejs') %>
-    <div class="row mt-4">
-        <div class='col-8 pic'>
-            <img src="<%=item.image%>" height="220px" width="auto" >
-            <h5 class="card-title"> <%= item.name %>   </h5>
-            <p class="cart-text"> <%= item.desc %> </p>
-            <h4 class='card-title price'> <%= item.price %></h4>
-        </div>
-    <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
-        <a href="/item/<%=item._id%>/edit">edit</a>
-        <form action = '/item/<%=item._id%>?_method=DELETE' method = "POST">
-            <button>Delete</button>
-        </form>
-    <% } %>
+<link rel="stylesheet" href="../css/ShowItemStyle.css">
+    <div class="container">
+        <div class='row item'>
+            <div class='col'>
+                <img src="<%=item.image%>" height="220px" width="auto" >
+            </div>
+            <div class='col '>
+                <h5 class="card-title"> <%= item.name %>  </h5>
+                <p class="cart-text"> Category :  <%= item.category %> </p>
+                <p class="cart-text"> Description : <%= item.desc %> </p>
+                <h4 class='card-title price'> <%= item.price %> BTH</h4>
+                <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
+                    <div class="col item-butt">
+                        <button  class="btn btn-info"  href="/item/<%=item._id%>/edit">Edit</button>
+                        <form action = '/item/<%=item._id%>?_method=DELETE' method = "POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>       
+                <% } %>
+            </div>    
+        </div> 
+        <div class="row comment">
+            <a class='btn btn-primary' href="/item/<%=item._id%>/comments/new"> new comment</a>   
+                <% item.comments.forEach(function(comment){ %>
+                    <p>
+                        <strong><%= comment.author.username %></strong> - <%= comment.text %>
+                    </p>
+                    <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                        <a href="/item/<%= item._id %>/comments/<%= comment._id %>/edit"> edit </a>
+                        <form action = '/item/<%=item._id %>/comments/<%= comment._id %>?_method=DELETE' method = "POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    <% } %>
+                <% }); %> 
+        </div>   
     </div>
 
-    <a class='btn btn-primary' href="/item/<%=item._id%>/comments/new"> new comment</a>   
-    <% item.comments.forEach(function(comment){ %>
-        <p>
-            <strong><%= comment.author.username %></strong> - <%= comment.text %>
-        </p>
-        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-            <a href="/item/<%= item._id %>/comments/<%= comment._id %>/edit"> edit </a>
-            <form action = '/item/<%=item._id %>/comments/<%= comment._id %>?_method=DELETE' method = "POST">
-                <button>Delete</button>
-            </form>
-        <% } %>
-    <% }); %> 
+   
 

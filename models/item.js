@@ -4,13 +4,8 @@ var itemSchema = new mongoose.Schema({
     name: String,
     image: String,
     desc: String,
-    price: String,
-    category: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Category'
-        }
-    ],
+    price: Number,
+    category: String,
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

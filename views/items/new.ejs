@@ -7,23 +7,23 @@
     <form action='/item' method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label  class="form-label">Name</label>
-            <input type="text"  class="form-control" name = 'item[name]' placeholder="Name item">
+            <input required type="text"  class="form-control" name = 'item[name]' placeholder="Name item">
         </div>
         <div class="mb-3">
             <label  class="form-label">Image</label>
-            <input type="file"  class="form-control" name = 'image' accept="image/*" >
+            <input required type="file"  class="form-control" name = 'image' accept="image/*" >
         </div>
         <div class="mb-3">
             <label  class="form-label">Category</label>
-            <input type="text"  class="form-control" name = 'item[category]' placeholder="Category">
+            <input required type="text"  class="form-control" name = 'item[category]' placeholder="Category">
         </div>
         <div class="mb-3">
             <label  class="form-label">Description</label>
-            <input type="text"  class="form-control" name = 'item[desc]' placeholder="Description">
+            <input required type="text"  class="form-control" name = 'item[desc]' placeholder="Description">
         </div>
         <div class="mb-3">
             <label  class="form-label">Price</label>
-            <input type="text"  class="form-control" name = 'item[price]' placeholder="Price">
+            <input required type="text"  class="form-control" name = 'item[price]' placeholder="Price">
         </div>
         <button type="submit" class='btn btn-primary'>Submit</button>
         <a href="/">Go to Back</a>

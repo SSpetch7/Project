@@ -36,7 +36,9 @@
    /* background-color: hotpink;*/
   
 }
-
+.card-title {
+    margin-left: 15px;
+}
  .item {
    /* margin-right: 0;*/
    /* padding-right: 0;*/

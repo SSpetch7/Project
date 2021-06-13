@@ -13,7 +13,28 @@ body {
 
 /* Comment */
 
-.container .row .comment {
-    margin-top: 5px;
-    background-color: aqua;
+
+#comment {
+    margin-top: 20px;
+}
+.comment-layout .comment-text {
+}
+
+.comment-layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-layout .comment-butt{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+.comment-butt .btn-danger {
+    margin-left: 5px;
+}
+
+.comment-layout{
+    margin-top: 20px;
 }

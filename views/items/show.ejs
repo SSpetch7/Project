@@ -7,8 +7,8 @@
             </div>
             <div class='col '>
                 <h5 class="card-title"> <%= item.name %>  </h5>
-                <p class="cart-text"> Category :  <%= item.category %> </p>
-                <p class="cart-text"> Description : <%= item.desc %> </p>
+                <p class="cart-text"> <strong>Category : </strong>  <%= item.category %> </p>
+                <p class="cart-text"> <strong> Description :  </strong> <%= item.desc %> </p>
                 <h4 class='card-title price'> <%= item.price %> BTH</h4>
                 <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
                     <div class="col item-butt">
@@ -20,19 +20,32 @@
                 <% } %>
             </div>    
         </div> 
-        <div class="row comment">
-            <a class='btn btn-primary' href="/item/<%=item._id%>/comments/new"> new comment</a>   
+        <div class="row comment" id='comment'>
+            <div class='Butt-newcomment'>
+                <a class='btn btn-primary' href="/item/<%=item._id%>/comments/new"> new comment</a> 
                 <% item.comments.forEach(function(comment){ %>
-                    <p>
-                        <strong><%= comment.author.username %></strong> - <%= comment.text %>
-                    </p>
+            </div>
+            <div class="">
+                
+                <div class="comment-layout">
+                    <div class=" comment-text">
+                            <p>
+                                <strong><%= comment.author.username %></strong> - <%= comment.text %>
+                            </p>
+                    </div>
                     <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                        <a href="/item/<%= item._id %>/comments/<%= comment._id %>/edit"> edit </a>
-                        <form action = '/item/<%=item._id %>/comments/<%= comment._id %>?_method=DELETE' method = "POST">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                    <% } %>
+                    <div class="comment-butt">
+                            <button type="button" class="btn btn-info" href="/item/<%= item._id %>/comments/<%= comment._id %>/edit"> Edit </button>
+                            <form id='formComButt' action = '/item/<%=item._id %>/comments/<%= comment._id %>?_method=DELETE' method = "POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                        <% } %>
+                </div>  
                 <% }); %> 
+                
+            </div>
+            
         </div>   
     </div>
 

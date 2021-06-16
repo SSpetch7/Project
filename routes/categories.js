@@ -1,17 +1,18 @@
 var express = require('express'),
-    router  = express.Router({mergeParams: true}),
+    router  = express.Router(),
     middleware = require('../middleware'),
     Item = require('../models/item'),
+    User = require('../models/user'),
     Category = require('../models/category');
     
 
-router.get('/:id', function(req, res){
-    Item.findId((req.params.cate_id), function(err, ItembyCategory){
+router.get('/cloth', function(req, res){
+    Item.find({}, function(err, ItembyCategory){
         if(err){
             console.log(err);
-            res.redirect('back');
         } else {
-            res.render('Home.ejs',{cate: ItembyCategory});
+            // res.send(ItembyCategory)
+            res.render('categories/Clothshow.ejs',{category :ItembyCategory })
         }
     })
 });

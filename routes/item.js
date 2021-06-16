@@ -20,6 +20,8 @@ var express = require('express'),
     upload  = multer({storage: storage, fileFilter: imageFilter}),        
     Item  = require('../models/item');
 
+
+    
 router.get('/', function(req, res){
     Item.find({}, function(err, allItemList){
         if(err){

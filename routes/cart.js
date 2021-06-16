@@ -3,5 +3,6 @@ var express  = require('express'),
     Item     = require('../models/item');
 
 router.get('/', function(req,res, next){
-    res.send(req.params);
+    res.send(req.params.id);
 })
+module.exports = router;

@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+
+<h2>Categories</h2>
+<a href="/admin/categories/add-category" class="btn btn-primary">Add a new category</a>
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% categories.forEach(function(cate) { %>
+        <tr>
+            <td> <%= cate.name %> </td>
+            <td> <a href="/admin/categories/edit-category/<%= cate.slug %>"> Edit </a> </td>
+            <td><a class='confirmDeletion' href="/admin/categories/delete-category/<%= cate._id %>">Delete</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>

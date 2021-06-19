@@ -16,6 +16,7 @@ var itemRoutes = require('./routes/item'),
     indexRoutes    = require('./routes/index'),
     categoryRoutes = require('./routes/categories'),
     cartRoutes = require('./routes/cart'),
+    adminCategoryRouter = require('./routes/admin/categories'),
     commentV2Routes = require('./routes/commentsNewV');
     
 // database
@@ -64,6 +65,7 @@ app.use('/item',itemRoutes);
 app.use('/item/:id/comments',commentRoutes);
 app.use('/category',categoryRoutes);
 app.use('/cart',cartRoutes);
+app.use('/admin/categories',adminCategoryRouter);
 /*app.use('/do-comment',commentV2Routes);*/
 
 app.listen(4000,function(){

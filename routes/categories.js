@@ -2,8 +2,7 @@ var express = require('express'),
     router  = express.Router(),
     middleware = require('../middleware'),
     Item = require('../models/item'),
-    User = require('../models/user'),
-    Category = require('../models/category');
+    User = require('../models/user');
     
 
 router.get('/cloth', function(req, res){

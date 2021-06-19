@@ -9,6 +9,7 @@ const   express         = require('express'),
         Collection      = require('./models/item'),
         Comment         = require('./models/comment'),
         User            = require('./models/user'),
+        expressValidator = require('express-validator'),
         seedDB          =  require('./seeds');
 
 var itemRoutes = require('./routes/item'),
@@ -48,7 +49,14 @@ app.use(function(req, res, next){
     res.locals.success = req.flash('success');
     next();
 });
-
+/* Express validator */
+app.use(expressValidator({
+    errorFormatter: function(param, msg, value) {
+     return {
+          message: msg
+     };
+    }
+   }));
 
 app.use(function(req,res,next){
     res.locals.currentUser = req.user ;

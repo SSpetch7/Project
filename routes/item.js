@@ -18,8 +18,8 @@ var express = require('express'),
         callback(null, true);
     },
     upload  = multer({storage: storage, fileFilter: imageFilter}),        
-    Item  = require('../models/item');
-
+    Item  = require('../models/item'),
+    Category = require('../models/category');
 
     
 router.get('/', function(req, res){
@@ -51,7 +51,10 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(req, re
 });
 
 router.get('/new', middleware.isLoggedIn, function(req,res){
-    res.render('items/new.ejs');
+    Category.find(function(err, categories){
+        res.render('items/new.ejs',{categories: categories});
+    });
+    
 });
 
 router.get("/:id", function(req, res){

@@ -1,11 +1,25 @@
 var mongoose = require('mongoose');
 
 var itemSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    desc: String,
-    price: Number,
-    category: String,
+    name: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String
+    },
+    desc: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
     author: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

@@ -1,0 +1,13 @@
+<h2>Edit a category</h2>
+
+<div class="container mt-4">
+    <form action='/admin/categories/edit-category/<%= id %>' method="POST">
+        <div class="mb-3">
+            <label  class="form-label">Name</label>
+            <input type="text"  class="form-control" name = 'name' placeholder="<%= name %>" value = "<%= name %>">
+        </div>
+        
+        <button type="submit" class='btn btn-primary'>Submit</button>
+        <a href="/admin/categories">Go to Back</a>
+    </form>
+</div>

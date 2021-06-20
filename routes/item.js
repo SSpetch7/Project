@@ -20,7 +20,6 @@ var express = require('express'),
     upload  = multer({storage: storage, fileFilter: imageFilter}),        
     Item  = require('../models/item'),
     Category = require('../models/category');
-
     
 router.get('/', function(req, res){
     Item.find({}, function(err, allItemList){
@@ -51,10 +50,13 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(req, re
 });
 
 router.get('/new', middleware.isLoggedIn, function(req,res){
-    Category.find(function(err, categories){
-        res.render('items/new.ejs',{categories: categories});
-    });
-    
+    Category.find({}, function(err, foundCategories){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('items/new.ejs', {categories: foundCategories});
+        }
+    })
 });
 
 router.get("/:id", function(req, res){

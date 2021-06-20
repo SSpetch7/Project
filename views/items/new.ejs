@@ -15,7 +15,13 @@
         </div>
         <div class="mb-3">
             <label  class="form-label">Category</label>
-            <input required type="text"  class="form-control" name = 'item[category]' placeholder="Category">
+            <select required   class="form-control" name = 'item[category]' placeholder="Category">
+                <% categories.forEach(function(cate){ %>
+                    <option value="<%= cate.slug %>">
+                        <%= cate.name %> 
+                    </option>
+                <% }); %>
+             </select>
         </div>
         <div class="mb-3">
             <label  class="form-label">Description</label>

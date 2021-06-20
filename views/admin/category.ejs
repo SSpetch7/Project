@@ -15,7 +15,11 @@
         <tr>
             <td> <%= cate.name %> </td>
             <td> <a href="/admin/categories/edit-category/<%= cate._id %>"> Edit </a> </td>
-            <td><a class='confirmDeletion' href="/admin/categories/delete-category/<%= cate._id %>">Delete</a></td>
+            <td>
+                <form id='formComButt' action = '/admin/categories/delete-category/<%= cate._id %>?_method=DELETE' method = "POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </td>
         </tr>
         <% }); %>
     </tbody>

@@ -106,7 +106,16 @@ router.post('/edit-category/:id', function(req, res){
 });
 
 
-
+router.delete('/delete-category/:id',  function(req, res){
+    Category.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect('back');
+        } else {
+            req.flash('success', 'Category delete!');
+            res.redirect('/admin/categories');
+        }
+    });
+});
 
 
 

@@ -17,7 +17,7 @@ var itemRoutes = require('./routes/item'),
     indexRoutes    = require('./routes/index'),
     categoryRoutes = require('./routes/categories'),
     cartRoutes = require('./routes/cart'),
-    adminCategoryRouter = require('./routes/admin/categories'),
+    adminCategoryRouter = require('./routes/categories'),
     commentV2Routes = require('./routes/commentsNewV');
     
 // database
@@ -51,12 +51,21 @@ app.use(function(req, res, next){
 });
 /* Express validator */
 app.use(expressValidator({
-    errorFormatter: function(param, msg, value) {
-     return {
-          message: msg
-     };
+    errorFormatter: function(param, msg, value){
+        var namespace = param.split('.'),
+        root = namespace.shift(),
+        formParam = root;
+
+        while(namespace.length){
+            formParam += '[' + namespace.shift() + ']';
+        }
+        return {
+            param: formParam,
+            msg: msg,
+            value: value
+        };
     }
-   }));
+}));
 
 app.use(function(req,res,next){
     res.locals.currentUser = req.user ;

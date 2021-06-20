@@ -1,8 +1,8 @@
 <h2> Add a Category</h2>
 <a href='/admin/categories'>Back to all categories</a>
-<form action='/admin/categories/add-category' method="POST">
+<form action='/admin/categories/add-category' method="post">
     <div>
-        <h2>Name</h2>
+        <label class="form-label">Name</label>
         <input type='text' name='name' value='<%= name %>' placeholder="Name">
     </div>
     <button class="btn btn-default">Subtmit</button>

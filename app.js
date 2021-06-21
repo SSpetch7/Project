@@ -1,5 +1,6 @@
 const   express         = require('express'),
         app             = express(),
+        path = require('path'),
         bodyParser      = require('body-parser'),
         mongoose        = require('mongoose'),
         flash           = require('connect-flash'),
@@ -10,8 +11,14 @@ const   express         = require('express'),
         Comment         = require('./models/comment'),
         User            = require('./models/user'),
         expressValidator = require('express-validator'),
+        session = require('express-session'),
         seedDB          =  require('./seeds');
 
+// app.get('*', function(req, res, next){
+//     res.locals.cart = req.session.cart;
+//     next();
+// })    
+        
 var itemRoutes = require('./routes/item'),
     commentRoutes    = require('./routes/comments'),
     indexRoutes    = require('./routes/index'),
@@ -19,6 +26,9 @@ var itemRoutes = require('./routes/item'),
     cartRoutes = require('./routes/cart'),
     adminCategoryRouter = require('./routes/categories'),
     commentV2Routes = require('./routes/commentsNewV');
+
+// cart 
+
     
 // database
 mongoose.connect('mongodb://localhost/BItem');
@@ -26,6 +36,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 app.use(methodOverride('_method'));
 //Static File( CSS )
+// app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'))
 app.use(flash());
 app.use('/css',express.static(__dirname+'public/css'))

@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+<% if(typeof cart !== 'undefined') { %>
+    <table class='table'>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+            <th>Subtotal</th>
+        </tr>
+        <% cart.forEach(function(item){ %>
+        <% var sub = parseFloat(item.qty * item.price) %>
+        <tr>
+            <td><img src="<%= item.image %>"></td>
+            <td><%= item.name %></td>
+            <td><%= item.price %></td>
+            <td><%= item.quantity %></td>
+            <td>
+                <a href='/cart/update/<%= item.name %>?action=add'>+</a>&nbsp;
+                <a href='/cart/update/<%= item.name %>?action=remove'>-</a>&nbsp;
+                <a href='/cart/update/<%= item.name %>?action=clear'>clear</a>&nbsp;
+            </td>
+            <td><%= sub %></td>
+        </tr>
+        <% }); %>
+        
+    </table>
+
+
+
+<% } %>
+

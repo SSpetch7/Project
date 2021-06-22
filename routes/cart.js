@@ -45,7 +45,7 @@ router.get('/add/:item', function(req, res){
 });
 
 router.get('/checkout',function(req, res){
-    res.render('checkout', {
+    res.render('admin/checkout.ejs', {
         name: 'Checkout',
         cart: req.session.cart
     })

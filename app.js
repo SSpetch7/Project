@@ -96,6 +96,6 @@ app.use('/cart',cartRoutes);
 app.use('/admin/categories',adminCategoryRouter);
 /*app.use('/do-comment',commentV2Routes);*/
 
-app.listen(4000,function(){
+app.listen(3000,function(){
     console.log('SHOPERSHOPER is started.');
 });

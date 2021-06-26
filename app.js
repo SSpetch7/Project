@@ -92,7 +92,6 @@ app.use('/',indexRoutes);
 app.use('/item',itemRoutes);
 app.use('/item/:id/comments',commentRoutes);
 app.use('/category',categoryRoutes);
-app.use('/cart',cartRoutes);
 app.use('/admin/categories',adminCategoryRouter);
 /*app.use('/do-comment',commentV2Routes);*/
 

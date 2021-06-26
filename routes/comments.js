@@ -36,7 +36,7 @@ router.post('/', middleware.isLoggedIn, function(req, res){
     });
 });
 
-router.get('/:comment_id/edit', middleware.checkCommentOwner, function(req, res){
+router.get('/:coment_id/edit', middleware.checkCommentOwner, function(req, res){
     Comment.findById(req.params.coment_id, function(err, foundComment){
         if(err){
             res.redirect('back');
@@ -46,7 +46,7 @@ router.get('/:comment_id/edit', middleware.checkCommentOwner, function(req, res)
     });
 });
 
-router.put('/:comment_id', middleware.checkCommentOwner, function(req, res){
+router.put('/:coment_id', middleware.checkCommentOwner, function(req, res){
     Comment.findByIdAndUpdate(req.params.coment_id, req.body.comment, function(err, updatedComment){
         if(err){
             res.redirect('back');
@@ -56,7 +56,7 @@ router.put('/:comment_id', middleware.checkCommentOwner, function(req, res){
     });
 });
 
-router.delete('/:comment_id', middleware.checkCommentOwner, function(req, res){
+router.delete('/:coment_id', middleware.checkCommentOwner, function(req, res){
     Comment.findByIdAndRemove(req.params.coment_id, function(err){
         if(err){
             res.redirect('back');

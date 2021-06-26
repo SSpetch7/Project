@@ -24,7 +24,7 @@ middlewareObj.checkItemOwner = function(req, res, next){
 
 middlewareObj.checkCommentOwner = function(req, res, next){
     if(req.isAuthenticated()){
-        Comment.findById(req.params.comment_id, function(err, foundComment){
+        Comment.findById(req.params.coment_id, function(err, foundComment){
             if(err){
                 res.redirect('back');
             } else {

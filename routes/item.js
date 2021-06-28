@@ -103,7 +103,7 @@ router.delete('/:id', middleware.checkItemOwner, function(req, res){
 });
 
 router.post("/cart/:id", middleware.isLoggedIn, function(req, res){
-    console.log('POST|User add cart');
+    console.log('User add cart');
     let newCart, inCart = false;
     req.user.cart.forEach(function(item){
         if (item.item_id === req.params.id){
@@ -143,7 +143,6 @@ router.post("/cart/:id", middleware.isLoggedIn, function(req, res){
 
 });
 router.post('/cart/delete/:id', function(req, res){
-    console.log('POST HERE')
     const id = req.params.id;
     req.user.cart.forEach(function(item){
         if(item.item_id === id){
@@ -155,7 +154,7 @@ router.post('/cart/delete/:id', function(req, res){
     })
 });
 router.post('/search', function(req,res){
-    console.log('get|search');
+    console.log('get| search');
     var key = req.body.key;
     console.log(key);
     Item.find({name: {$regex: '.' + key + '.'}}, function(err, search){
@@ -163,7 +162,6 @@ router.post('/search', function(req,res){
             console.log(err);
 
         } else {
-            console.log("HERE");
             console.log(search);
             res.render('Home.ejs', {items: search});
             

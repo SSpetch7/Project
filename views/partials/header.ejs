@@ -17,7 +17,7 @@
     <nav class="row navbar navbar-expand-lg navbar-light g-0 ">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">SHOPPER SHOPPER</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           
@@ -32,21 +32,11 @@
                 <li><a class="dropdown-item" href="#">หนังสือ</a></li>
               </ul>
             </li> -->
-            <form class="d-flex mx-2 my-auto d-inline w-100">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <ul  class="btn btn-outline-success" type="submit">
-                <li>
-                  <a href="/cart/checkout">My Cart ( 
-                    <% if(typeof cart !== 'undefined') { %>
-                      <%= cart.length %>
-                      <% } else { %> 
-                        0 
-                      <% } %> 
-                  </a>
-                </li>
-              </ul>
+            <form action="/item/search" method="POST"  class="d-flex mx-2 my-auto d-inline w-100">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search" name='key'>
+              <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <i class="bi bi-cart btn-outline-success"></i> 
+            <a  href="/cart"><i  class="bi bi-cart btn-outline-success"></i>  </a>
             <% if(!currentUser) { %>
             <ul class="navbar-nav ">
               <li class="nav-item">

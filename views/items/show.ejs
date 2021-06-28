@@ -10,7 +10,11 @@
                 <p class="cart-text"> <strong>Category : </strong>  <%= item.category %> </p>
                 <p class="cart-text"> <strong> Description :  </strong> <%= item.desc %> </p>
                 <h4 class='card-title price'> <%= item.price %> BTH</h4>
-                <p><a href="/cart/add/">Add to cart</a></p>
+                <form action='/item/cart/<%= item.id %>' method='POST'>
+                    <input type="number" name="quantity" placeholder="1">
+                    <button>add to cart</button>
+                </form>
+
                 <% if(currentUser && item.author.id.equals(currentUser._id)) { %>
                     <div class="col item-butt">
                         <a  class="btn btn-info"  href="/item/<%=item._id%>/edit">Edit</a>

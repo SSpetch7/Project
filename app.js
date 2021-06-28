@@ -14,18 +14,12 @@ const   express         = require('express'),
         session = require('express-session'),
         seedDB          =  require('./seeds');
 
-// app.get('*', function(req, res, next){
-//     res.locals.cart = req.session.cart;
-//     next();
-// })    
+
         
 var itemRoutes = require('./routes/item'),
     commentRoutes    = require('./routes/comments'),
     indexRoutes    = require('./routes/index'),
-    categoryRoutes = require('./routes/categories'),
-    cartRoutes = require('./routes/cart'),
-    adminCategoryRouter = require('./routes/categories'),
-    commentV2Routes = require('./routes/commentsNewV');
+    cartRoutes = require('./routes/cart');
 
 // cart 
 
@@ -91,10 +85,9 @@ app.use('/public',function(req,res,next){
 app.use('/',indexRoutes);
 app.use('/item',itemRoutes);
 app.use('/item/:id/comments',commentRoutes);
-app.use('/category',categoryRoutes);
-app.use('/admin/categories',adminCategoryRouter);
+app.use('/cart',cartRoutes);
 /*app.use('/do-comment',commentV2Routes);*/
 
-app.listen(3000,function(){
+app.listen(4000,function(){
     console.log('SHOPERSHOPER is started.');
 });

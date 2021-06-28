@@ -7,8 +7,30 @@ var UserSchema = new mongoose.Schema({
     isAdmin: {type: Boolean, default: false},
     cart: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Cart'
+            item_id : {
+                type: String,
+                required: true
+            },
+            item_image : {
+                type: String,
+                required: true
+            },
+            item_name : {
+                type: String,
+                required: true
+            },
+            item_qty : {
+                type: Number,
+                required: true
+            },
+            item_price: {
+                type: Number,
+                required: true
+            },
+            item_total : {
+                type: Number,
+                required: true
+            }
         }
     ]
 });

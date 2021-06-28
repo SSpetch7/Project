@@ -102,6 +102,74 @@ router.delete('/:id', middleware.checkItemOwner, function(req, res){
     });
 });
 
+router.post("/cart/:id", middleware.isLoggedIn, function(req, res){
+    console.log('POST|User add cart');
+    let newCart, inCart = false;
+    req.user.cart.forEach(function(item){
+        if (item.item_id === req.params.id){
 
+            req.flash('error', 'this Product already in cart.');
+            console.log('Product already in cart');
+            inCart = true;
+        }
+    })
+    if(!inCart){
+        Item.findById({_id: req.params.id}, (function(err, item){
+            console.log("item = "+item);
+            if(err){
+                console.log(err);
+            } else {
+
+                newCart = {
+                    item_id: item.id,
+                    item_image: item.image,
+                    item_name: item.name,
+                    item_qty: parseInt(req.body.quantity),
+                    item_price: item.price,
+                    item_total: parseInt(req.body.quantity)*item.price,
+                }
+
+                console.log(newCart);
+                req.user.cart.push(newCart);
+                req.user.save();
+                req.flash('success', 'Add item in cart.');
+                res.redirect('/item');
+
+            }
+        }));
+    } else {
+        res.redirect('/item');
+    }
+
+});
+router.post('/cart/delete/:id', function(req, res){
+    console.log('POST HERE')
+    const id = req.params.id;
+    req.user.cart.forEach(function(item){
+        if(item.item_id === id){
+            req.user.cart.splice(req.user.cart.indexOf(item),1);
+            req.user.save();
+            console.log('HERE')
+            res.redirect('/item/cart');
+        }
+    })
+});
+router.post('/search', function(req,res){
+    console.log('get|search');
+    var key = req.body.key;
+    console.log(key);
+    Item.find({name: {$regex: '.' + key + '.'}}, function(err, search){
+        if(err){
+            console.log(err);
+
+        } else {
+            console.log("HERE");
+            console.log(search);
+            res.render('Home.ejs', {items: search});
+            
+        }
+    });
+
+});
 
 module.exports = router;

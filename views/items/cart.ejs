@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+    <h3> User: <%= currentUser.username %> </h3>
+    <h3> Product: <%= currentUser.cart.length %> item </h3>
+    <p></p>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th  scope="col">Product name</th>
+          <th  scope="col">Picture</th>
+          <th  scope="col">Qty</th>
+          <th  scope="col">price</th>
+          <th scope='col'>Total</th>
+          <th scope='col'></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% let totalp = 0 %>
+        <% currentUser.cart.forEach(function(cart, index) { %> 
+        <tr>
+          <th scope="row"><%= index+1 %></th>
+          <td> <%= cart.item_name %> </td>
+          <td> <img src='<%= cart.item_image %>' width='120px' height="auto"> </td>
+          <td> <%= cart.item_qty %> </td>
+          <td> <%= cart.item_price %> </td>
+          <td> <%= cart.item_total %> </td>
+          <td> <form action = '/item/cart/delete/<%= cart.item_id %>' method = "POST">
+                  <a class="btn btn-danger" type='submit'>Delete</a>
+              </form> 
+          </td>
+        </tr>
+        <tr>
+        </tr>
+        <% }); %>
+      </tbody>
+      
+    </table>
+  </div>
